@@ -1,0 +1,26 @@
+{
+  "name": "pro-polymer",
+  "homepage": "https://github.com/arsenazar/pro-polymer",
+  "authors": [
+    "Arsen nazar <arsennazar727@gmail.com>"
+  ],
+  "description": "polymer chat application",
+  "main": "index.html",
+  "keywords": [
+    "polymer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "note-app-elements": "polymerlabs/note-app-elements#^2.1.1",
+    "polymerfire": "firebase/polymerfire#^2.1.0",
+    "polymer": "Polymer/polymer#^2.0.0",
+    "sw-toolbox": "^3.6.1"
+  }
+}

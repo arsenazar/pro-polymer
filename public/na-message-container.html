@@ -1,0 +1,98 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-styles/shadow.html">
+<link rel="import" href="bower_components/paper-styles/typography.html">
+<link rel="import" href="bower_components/iron-input/iron-input.html">
+<link rel="import" href="bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
+
+<dom-module id="na-note">
+    <template>
+        <style>
+            .message-container:first-of-type {
+                border-top-width: 0;
+            }
+            .message-container {
+                display: block;
+                margin-top: 10px;
+                border-top: 1px solid #f3f3f3;
+                padding-top: 10px;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+            }
+            .message-container.visible {
+                opacity: 1;
+            }
+            .message-container .pic {
+                background-image: url('/images/profile_placeholder.png');
+                background-repeat: no-repeat;
+                width: 30px;
+                height: 30px;
+                background-size: 30px;
+                border-radius: 20px;
+            }
+            .message-container .spacing {
+                display: table-cell;
+                vertical-align: top;
+            }
+            .message-container .message {
+                display: table-cell;
+                width: calc(100% - 40px);
+                padding: 5px 0 5px 10px;
+            }
+            .message-container .name {
+                display: inline-block;
+                width: 100%;
+                padding-left: 40px;
+                color: #bbb;
+                font-style: italic;
+                font-size: 12px;
+                box-sizing: border-box;
+            }
+        </style>
+        <template is="dom-if" if="[[editable]]">
+            <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                    <div id="messages">
+                        <span id="message-filler"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <iron-input bind-value="{{message}}">
+                            <input is="iron-input"
+                                   bind-value="{{message}}">
+                            </input>
+                        </iron-input>
+                        <input class="mdl-textfield__input" type="text" id="message">
+                        <label class="mdl-textfield__label" for="message">Message...</label>
+                    </div>
+                    <paper-button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                        Send
+                    </paper-button>
+                    <form id="image-form" action="#">
+                        <input id="mediaCapture" type="file" accept="image/*,capture=camera">
+                        <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
+                            <i class="material-icons">image</i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </template>
+
+    </template>
+    <script>
+      Polymer({
+        is: 'na-message-container',
+
+        properties: {
+        },
+      })
+    </script>
+</dom-module>
